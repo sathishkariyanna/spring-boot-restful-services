@@ -6,6 +6,8 @@ import java.util.Date;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * 
  * @author Sathish
@@ -15,8 +17,11 @@ public class Employee implements Serializable {
 
 	private static final long serialVersionUID = -7788619177798333712L;
 
+	@ApiModelProperty(notes = "The Employee ID") // to display on swagger2 UI
 	private int id;
+	@ApiModelProperty(notes = "The Employee Name")
 	private String name;
+	@ApiModelProperty(notes = "The Employee join date")
 	private Date createdDate;
 
 	public Employee() {
@@ -24,7 +29,6 @@ public class Employee implements Serializable {
 	}
 
 	public Employee(int id, String name) {
-		// TODO Auto-generated constructor stub
 		this.id = id;
 		this.name = name;
 	}

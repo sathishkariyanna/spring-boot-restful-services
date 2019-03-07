@@ -1,5 +1,7 @@
 package com.sathish.springboot.restapi.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * 
  * @author Sathish
@@ -7,6 +9,7 @@ package com.sathish.springboot.restapi.dto;
  */
 public class Person {
 
+	@ApiModelProperty(notes = "The person Name") // to display on swagger2 UI
 	private String name;
 
 	public Person() {
@@ -24,6 +27,11 @@ public class Person {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [name=" + name + "]";
 	}
 
 }

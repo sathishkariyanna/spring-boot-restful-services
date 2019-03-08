@@ -45,3 +45,6 @@ hs_err_pid*
 /HELP.md
 /mvnw
 /mvnw.cmd
+/spring-boot-restful-service-content-negotiation/.mvn/wrapper
+/spring-boot-restful-service-content-negotiation/mvnw
+/spring-boot-restful-service-content-negotiation/mvnw.cmd

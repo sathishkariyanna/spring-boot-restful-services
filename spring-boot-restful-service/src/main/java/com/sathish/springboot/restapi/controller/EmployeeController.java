@@ -43,8 +43,8 @@ public class EmployeeController {
 	@RequestMapping(value = "/rest/emp/default", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody Employee getDefaultEmployee() {
 		Employee emp = new Employee();
-		empData.put(9999, emp);
 		emp = employeeService.getDefaultEmployeeService();
+		empData.put(9999, emp);
 		return emp;
 	}
 
@@ -123,11 +123,17 @@ public class EmployeeController {
 
 	// URL http://localhost:8080//rest/emp/delete/1
 	@RequestMapping(value = "/rest/emp/delete/{id}", method = RequestMethod.DELETE)
-	public @ResponseBody Employee deleteEmployee(@PathVariable("id") int empId) {
+	public @ResponseBody ResponseEntity<Employee> deleteEmployee(@PathVariable("id") int empId) {
 		System.out.println("Start delete Employee.");
 		Employee emp = empData.get(empId);
-		empData.remove(empId);
-		return emp;
+		if (empData.get(empId) == null) {
+			System.out.println("Employee not found");
+			return new ResponseEntity<>(emp, HttpStatus.NO_CONTENT);
+		} else {
+			System.out.println("Employee not found with Id: " + empData.get(empId));
+			empData.remove(empId);
+		}
+		return new ResponseEntity<>(emp, HttpStatus.CREATED);
 	}
 
 	// ResponseEntity to set the status

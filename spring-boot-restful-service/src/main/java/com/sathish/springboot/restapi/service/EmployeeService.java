@@ -17,7 +17,7 @@ public class EmployeeService {
 		System.out.println("Start getDefaultEmployee Service");
 		Employee emp = new Employee();
 		emp.setId(9999);
-		emp.setName("Default");
+		emp.setName("Default Employee Name");
 		emp.setCreatedDate(new Date());
 		return emp;
 	}
